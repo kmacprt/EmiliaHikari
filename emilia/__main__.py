@@ -109,7 +109,7 @@ def start(update, context):
                 send_help(update.effective_chat.id, tl(update.effective_message, HELP_STRINGS))
 
             elif args[0].lower() == "get_notes":
-                update.effective_message.reply_text(tl(update.effective_message, "Anda sekarang dapat mengambil catatan di grup."))
+                update.effective_message.reply_text(tl(update.effective_message, "You can now take notes in groups."))
 
             elif args[0].lower().startswith("stngs_"):
                 match = re.match("stngs_(.*)", args[0].lower())
@@ -136,7 +136,7 @@ def start(update, context):
                     summary = summary[:4000]+"..."
                 message.reply_text("<b>{}</b>\n{}".format(judul, summary), parse_mode=ParseMode.HTML,
                     reply_markup=InlineKeyboardMarkup(
-                            [[InlineKeyboardButton(text=tl(update.effective_message, "Baca di Wikipedia"), url=pagewiki.url)]]))
+                            [[InlineKeyboardButton(text=tl(update.effective_message, "Wikipedia"), url=pagewiki.url)]]))
 
             elif args[0][:6].lower() == "verify":
                 chat_id = args[0].split("_")[1]
@@ -147,15 +147,15 @@ def start(update, context):
             buttons = InlineKeyboardMarkup(
                 [[InlineKeyboardButton(text="🎉 Add me to your group", url="https://t.me/{}?startgroup=new".format(context.bot.username))],
                 [InlineKeyboardButton(text="💭 Language", callback_data="main_setlang"), InlineKeyboardButton(text="⚙️ Connect Group", callback_data="main_connect")],
-                [InlineKeyboardButton(text="👥 Support Group", url="https://t.me/EmiliaOfficial"), InlineKeyboardButton(text="🔔 Update Channel", url="https://t.me/AyraBotNews")],
-                [InlineKeyboardButton(text="❓ Help", url="https://t.me/{}?start=help".format(context.bot.username)), InlineKeyboardButton(text="💖 Donate", url="http://ayrahikari.github.io/donations.html")]])
+                [InlineKeyboardButton(text="👥 Support Group", url="https://t.me/cyberwordk"), InlineKeyboardButton(text="🔔 Update Channel", url="https://t.me/snewst")],
+                [InlineKeyboardButton(text="❓ Help", url="https://t.me/{}?start=help".format(context.bot.username)), InlineKeyboardButton(text="💖 Donate", url="#")]])
             update.effective_message.reply_text(
                 tl(update.effective_message, PM_START_TEXT).format(escape_markdown(first_name), escape_markdown(context.bot.first_name), OWNER_ID),
                 disable_web_page_preview=True,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=buttons)
     else:
-        update.effective_message.reply_text(tl(update.effective_message, "Ada yang bisa saya bantu? 😊"))
+        update.effective_message.reply_text(tl(update.effective_message, "Is there anything I can help? 😊"))
 
 
 def m_connect_button(update, context):
@@ -314,20 +314,20 @@ def send_settings(chat_id, user_id, user=False):
                                         parse_mode=ParseMode.MARKDOWN)
 
         else:
-            dispatcher.bot.send_message(user_id, tl(chat_id, "Sepertinya tidak ada pengaturan khusus pengguna yang tersedia 😢"),
+            dispatcher.bot.send_message(user_id, tl(chat_id, "It looks like there aren't any user specific settings available 😢"),
                                         parse_mode=ParseMode.MARKDOWN)
 
     else:
         if CHAT_SETTINGS:
             chat_name = dispatcher.bot.getChat(chat_id).title
             dispatcher.bot.send_message(user_id,
-                                        text=tl(chat_id, "Modul mana yang ingin Anda periksa untuk pengaturan {}?").format(
+                                        text=tl(chat_id, "Which module you want to check for settings {}?").format(
                                             chat_name),
                                         reply_markup=InlineKeyboardMarkup(
                                             paginate_modules(0, CHAT_SETTINGS, "stngs", chat=chat_id)))
         else:
-            dispatcher.bot.send_message(user_id, tl(chat_id, "Sepertinya tidak ada pengaturan obrolan yang tersedia 😢\nKirim ini "
-                                                 "ke obrolan Anda sebagai admin untuk menemukan pengaturannya saat ini!"),
+            dispatcher.bot.send_message(user_id, tl(chat_id, "It looks like there are no chat settings available 😢\nSend this "
+                                                 "to your chats as admin to find their current settings!"),
                                         parse_mode=ParseMode.MARKDOWN)
 
 
@@ -349,7 +349,7 @@ def settings_button(update, context):
             if isadmin == False or user.id != OWNER_ID:
                 query.message.edit_text("Status admin anda telah berubah")
                 return
-            text = tl(update.effective_message, "*{}* memiliki pengaturan berikut untuk modul *{}*:\n\n").format(escape_markdown(chat.title),
+            text = tl(update.effective_message, "*{}* has the following settings for the module *{}*:\n\n").format(escape_markdown(chat.title),
                                                                                      CHAT_SETTINGS[
                                                                                         module].__mod_name__) + \
                    CHAT_SETTINGS[module].__chat_settings__(chat_id, user.id)
@@ -367,7 +367,7 @@ def settings_button(update, context):
             chat_id = prev_match.group(1)
             curr_page = int(prev_match.group(2))
             chat = context.bot.get_chat(chat_id)
-            query.message.edit_text(text=tl(update.effective_message, "Hai! Ada beberapa pengaturan untuk {} - lanjutkan dan pilih "
+            query.message.edit_text(text=tl(update.effective_message, "Hai! There are several settings for {} - lanjutkan dan pilih "
                                        "apa yang Anda minati.").format(chat.title),
                                   reply_markup=InlineKeyboardMarkup(
                                         paginate_modules(curr_page - 1, CHAT_SETTINGS, "stngs",
@@ -377,8 +377,8 @@ def settings_button(update, context):
             chat_id = next_match.group(1)
             next_page = int(next_match.group(2))
             chat = context.bot.get_chat(chat_id)
-            query.message.edit_text(text=tl(update.effective_message, "Hai! Ada beberapa pengaturan untuk {} - lanjutkan dan pilih "
-                                       "apa yang Anda minati.").format(chat.title),
+            query.message.edit_text(text=tl(update.effective_message, "Hai! There are several settings for {} - go ahead and choose "
+                                       "what you are interested in.").format(chat.title),
                                   reply_markup=InlineKeyboardMarkup(
                                         paginate_modules(next_page + 1, CHAT_SETTINGS, "stngs",
                                                          chat=chat_id)))
@@ -386,8 +386,8 @@ def settings_button(update, context):
         elif back_match:
             chat_id = back_match.group(1)
             chat = context.bot.get_chat(chat_id)
-            query.message.edit_text(text=tl(update.effective_message, "Hai! Ada beberapa pengaturan untuk {} - lanjutkan dan pilih "
-                                       "apa yang Anda minati.").format(escape_markdown(chat.title)),
+            query.message.edit_text(text=tl(update.effective_message, "Hai! There are several settings for {} - go ahead and choose "
+                                       "what you are interested in.").format(escape_markdown(chat.title)),
                                   parse_mode=ParseMode.MARKDOWN,
                                   reply_markup=InlineKeyboardMarkup(paginate_modules(0, CHAT_SETTINGS, "stngs",
                                                                                      chat=chat_id)))
@@ -417,10 +417,10 @@ def get_settings(update, context):
     # ONLY send settings in PM
     if chat.type != chat.PRIVATE:
         if is_user_admin(chat, user.id):
-            text = tl(update.effective_message, "Klik di sini untuk mendapatkan pengaturan obrolan ini, serta milik Anda.")
+            text = tl(update.effective_message, "Click here to get these chat settings, as well as yours.")
             msg.reply_text(text,
                            reply_markup=InlineKeyboardMarkup(
-                               [[InlineKeyboardButton(text="Pengaturan",
+                               [[InlineKeyboardButton(text="Settings",
                                                       url="t.me/{}?start=stngs_{}".format(
                                                           context.bot.username, chat.id))]]))
         # else:
@@ -440,7 +440,7 @@ def donate(update, context):
         update.effective_message.reply_text(tl(update.effective_message, DONATE_STRING), parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True)
 
         if OWNER_ID != 388576209 and DONATION_LINK:
-            update.effective_message.reply_text(tl(update.effective_message, "Anda juga dapat menyumbang kepada orang yang saat ini menjalankan saya "
+            update.effective_message.reply_text(tl(update.effective_message, "You can also donate to the people who currently run me "
                                                 "[disini]({})").format(DONATION_LINK),
                                                 parse_mode=ParseMode.MARKDOWN)
 
@@ -448,9 +448,9 @@ def donate(update, context):
         try:
             context.bot.send_message(user.id, tl(update.effective_message, DONATE_STRING), parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True)
 
-            update.effective_message.reply_text(tl(update.effective_message, "Saya sudah PM Anda tentang donasi untuk pencipta saya!"))
+            update.effective_message.reply_text(tl(update.effective_message, "I already PM you about donating to my creators!"))
         except Unauthorized:
-            update.effective_message.reply_text(tl(update.effective_message, "Hubungi saya di PM dulu untuk mendapatkan informasi donasi."))
+            update.effective_message.reply_text(tl(update.effective_message, "Contact me on PM first for donation information."))
 
 
 
