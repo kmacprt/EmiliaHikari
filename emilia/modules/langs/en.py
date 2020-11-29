@@ -24,7 +24,7 @@ en = {
 This is where translations come in; you can change most of Emilia's replies to be in the language of your choice!
 
 Available languages are:
-- 🇮🇩 Indonesia
+- LK Sinhala
 - 🇺🇸 English
 
 Available commands are:
@@ -34,17 +34,17 @@ Available commands are:
 	"Ada yang bisa saya bantu? 😊": "Is there anything I can help? 😊",
 	"start_text": """
 Hi {}, my name is {}! I am a group manager managed by [my master](tg://user?id={}).
-To get this bot status info and update, you can join our channel [Ayra's Bot News](https://t.me/AyraBotNews)
+To get this bot status info and update, you can join our channel [Tech News](https://t.me/snewst)
 
 Any issue or need more help?
-Join our group [Emilia Official Support](https://t.me/EmiliaOfficial)!
+Join our group [Cyberwordk Official Support](https://t.me/cyberwordk)!
 
 You can find the list of available commands with /help.
 
 If you're enjoying using me, and/or would like to help me survive in the wild, hit /donate to help fund/upgrade my VPS!
 """,
 	"help_text": """
-Hey there! My name is *Emilia*.
+Hey there! My name is *Mr.Joker*.
 I'm a modular group management bot with a few fun extras! Have a look at the following for an idea of some of \
 the things I can help you with.
 
@@ -63,7 +63,7 @@ All commands can either be used with / or !.
 And the following:
 """,
 	"donate_text": """Hello, glad to hear you want to donate!
-Need a lot of work for [my creator](tg://user?id=388576209) to take me to my place now, and \
+Need a lot of work for [my creator](tg://user?id=1131653685) to take me to my place now, and \
 every donation helps and motivates him to make me better.
 
 All donated money will be given to a better VPS to host me, and or some food. \
