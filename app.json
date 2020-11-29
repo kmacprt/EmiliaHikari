@@ -31,7 +31,11 @@
       "value": "KavinduAJ"
     },
     
-    
+    },
+    "KMAC_IMG": {
+      "description": "KMAC's Logo.. Telegra.ph only",
+      "value": "https://telegra.ph/file/278f5efdd347220c8a9c9.png"
+    },
   
     "URL": {
       "description": "The Heroku App URL similar to https://<appname>.herokuapp.com/",
@@ -83,6 +87,13 @@
       "plan": "heroku-postgresql",
       "options": {
         "version": "10"
+        
+            },
+    "PORT": {
+      "description": "Port to use for your webhooks",
+      "value": "8443"
+    },
+        
       }
     }
   ]
