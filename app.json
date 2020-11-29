@@ -1,3 +1,4 @@
+
 {
   "name": "GroupHelpManager Bot",
   "description": "Modular Telegram group management bot!",
@@ -8,7 +9,7 @@
     "manager",
     "3"
   ],
-  "repository": "https://github.com/kavinduaj121/EmiliaHikari",
+  "repository": "https://github.com/kavinduaj121/EmiliaHikari/",
   "env": {
     "ENV": {
       "description": "Setting this to ANYTHING will enable env variables",
@@ -19,22 +20,25 @@
       "value": ""
     },
     "AI_API_KEY": {
-      "description": "API key for AI chat. (Get it from https://coffeehouse.intellivoid.net). A sample is given below. change it with yours",
-      "value": "61a59c94b42c9b703b091fd419860eb118504bf6918534ed3b9a5fca50411f7534389749bb8cbeeb3ab7906c2703f52fe81fc02949fe8893b67c9c88e3fa76d3"
+      "description": "API key for AI chat..** Exclusively on Daisy**. (Get it from https://coffeehouse.intellivoid.net)",
+      "required" : false,
+      "value": ""
     },
+    "KMAC_IMG": {
+      "description": "KMAC's Logo.. Telegra.ph only",
+      "value": "https://telegra.ph/file/278f5efdd347220c8a9c9.png"
+    },
+    
     "OWNER_ID": {
       "description": "An integer of consisting of your owner ID",
       "value": "1131653685"
     },
     "OWNER_USERNAME": {
       "description": "Your username",
-      "value": "KavinduAJ"
+      "value": "kavinduaj"
+    },
     
-    },
-    "KMAC_IMG": {
-      "description": "KMAC's Logo.. Telegra.ph only",
-      "value": "https://telegra.ph/file/278f5efdd347220c8a9c9.png"
-    },
+    
   
     "URL": {
       "description": "The Heroku App URL similar to https://<appname>.herokuapp.com/",
@@ -86,13 +90,6 @@
       "plan": "heroku-postgresql",
       "options": {
         "version": "10"
-        
-            },
-    "PORT": {
-      "description": "Port to use for your webhooks",
-      "value": "8443"
-    },
-        
       }
     }
   ]
