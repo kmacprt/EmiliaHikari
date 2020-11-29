@@ -28,6 +28,8 @@ class Config(object):
 
     # OPTIONAL
     SUDO_USERS = []  # List of id's (not usernames) for users which have sudo access to the bot.
+    AI_API_KEY = ""
+    KMAC_IMG = ""
     SUPPORT_USERS = []  # List of id's (not usernames) for users which are allowed to gban, but can also be banned.
     WHITELIST_USERS = []  # List of id's (not usernames) for users which WONT be banned/kicked by the bot.
     DONATION_LINK = None  # EG, paypal
@@ -41,7 +43,6 @@ class Config(object):
     CUSTOM_CMD = False # Set to ('/', '!') or whatever to enable it, like ALLOW_EXCL but with more custom handler!
     SPAMMERS = "" # Will not allow to interact with bot
     TEMPORARY_DATA = None # Temporary data for backup module, use int number
-
 
 class Production(Config):
     LOGGER = False
