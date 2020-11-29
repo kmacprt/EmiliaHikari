@@ -80,8 +80,10 @@ if ENV:
 	CUSTOM_CMD = os.environ.get('CUSTOM_CMD', False)
 	API_WEATHER = os.environ.get('API_OPENWEATHER', None)
 	API_ACCUWEATHER = os.environ.get('API_ACCUWEATHER', None)
+	AI_API_KEY = os.environ.get('AI_API_KEY', '1a0b0ab81d1eead5089c2dd624a1a81d986447a16acae00762ca518862e9198e227ebac1f8290b592c4c8c1eb2fdc0e24a8015a7714cd4e222c0f1172828f595')
 	MAPS_API = os.environ.get('MAPS_API', None)
 	TEMPORARY_DATA = os.environ.get('TEMPORARY_DATA', None)
+	KMAC_IMG = os.environ.get('DAISY_IMG', 'https://telegra.ph/file/278f5efdd347220c8a9c9.png')
 	SPAMWATCH_TOKEN = os.environ.get('SPAMWATCH_TOKEN', None)
 
 else:
