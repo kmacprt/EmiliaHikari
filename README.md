@@ -3,7 +3,7 @@
 https://github.com/kavinduaj121/EmiliaHikari
 
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/InukaAsith/Daisy.git)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/kavinduaj121/EmiliaHikari.git)
 
 A modular telegram Python bot running on python3 with an sqlalchemy database.
 
