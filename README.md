@@ -2,6 +2,9 @@
 
 https://github.com/kavinduaj121/EmiliaHikari
 
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/InukaAsith/Daisy.git)
+
 A modular telegram Python bot running on python3 with an sqlalchemy database.
 
 Based on [marie bot](https://github.com/PaulSonOfLars/tgbot)
